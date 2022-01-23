@@ -100,6 +100,212 @@ public class hhm_bsicss
 
         System.out.println("This is Done");
     }
+
+    public static void isPrime_()
+    {
+        Scanner scn = new Scanner(System.in);
+        int t = scn.nextInt();
+
+        for(int i = 1; i <= t; i++)
+        {
+            int num = scn.nextInt();
+
+            int count = 0;
+
+            for(int div = 1; div <= num; div++)
+            {
+                if(num % div == 0)
+                count++;
+            }
+
+            if(count == 2)
+            System.out.println("prime");
+            else
+            System.out.println("not prime");
+        }
+    }
+
+    public static void isPrime__()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int t = scn.nextInt();
+
+        for(int i = 1; i <= t; i++)
+        {
+            int num = scn.nextInt();
+            boolean isPrime = true;
+            for(int div = 2; div < num; div++)
+            {
+                if(num % div == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+
+            }
+
+            if(isPrime)
+            System.out.println("prime");
+            else
+            System.out.println("not prime");
+        }
+    }
+
+    public static void isPrime___()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int t = scn.nextInt();
+
+        for(int i = 1; i <= t; i++)
+        {
+            int num = scn.nextInt();
+            boolean isPrime = true;
+
+            for(int div = 2; div <= num / 2; div++)
+            {
+                if(num % div == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if(isPrime)
+            System.out.println("prime");
+            else
+            System.out.println("not prime");
+        }
+    }
+
+    public static void isPrime____()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int t = scn.nextInt();
+
+        for(int i = 1; i <= t; i++)
+        {
+            int num = scn.nextInt();
+
+            boolean isPrime = true;
+
+            for(int div = 2; div * div <= num; div++)
+            {
+                if(num % div == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if(isPrime)
+            System.out.println("prime");
+            else
+            System.out.println("not prime");
+        }
+    }
+
+    public static void printBtwRange()
+    {
+        Scanner scn = new Scanner(System.in);
+        int lo = scn.nextInt();
+        int hi = scn.nextInt();
+
+        for(int num = lo; num <= hi; num++)
+        {
+            boolean isPrime = true;
+
+            for(int div = 2; div * div <= num; div++)
+            {
+                if(num % div == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if(isPrime)
+            System.out.println(num);
+        }
+    }
+
+    public static void printNFibo()
+    {
+        int n = scn.nextInt();
+
+        int a = 0;
+        int b = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            int c = a + b;
+            System.out.println(a);
+            a = b;
+            b = c;
+        }
+    }
+
+    public static void countDigits()
+    {
+        int n = scn.nextInt();
+
+        int count = 0;
+
+        while(n != 0)
+        {
+            n /= 10;
+            count++;
+        }
+
+        System.out.println(count);
+    }
+
+    public static void printDigits()
+    {
+        int num = scn.nextInt();
+        
+        int div = 1;
+        int temp = num;
+
+        while(temp >= 10)
+        {
+            temp /= 10;
+            div *= 10;
+        }
+
+        while(div >= 1)
+        {
+            int quo = num / div;
+            int rem = num % div;
+
+            num = rem;
+            System.out.println(quo);
+            div /= 10;
+        }
+    }
+
+    public static void inverseOfNum()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int num = scn.nextInt();
+
+        int inv = 0;
+        int p = 1;
+
+        while(num != 0)
+        {
+            int rem = num % 10;
+            num /= 10;
+
+            inv = inv + p*(int) Math.pow(10 , rem - 1);
+            p++;
+        }
+
+        System.out.println(inv);
+    }
     public static void main(String[] args)
     { 
 
@@ -111,7 +317,17 @@ public class hhm_bsicss
        // printingUsingLoop();
        //input();
        //print1ToN(scn.nextInt());
-       print1ToNOddEven(scn.nextInt());
+       //print1ToNOddEven(scn.nextInt());
+      // isPrime_();
+      //isPrime__();
+     // isPrime___();
+      // isPrime____();
+     // printBtwRange();
+     //printNFibo();
+
+     //countDigits();
+    // printDigits();
+    //inverseOfNum();
 
     }
 }
