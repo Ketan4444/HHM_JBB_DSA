@@ -1,8 +1,6 @@
 import java.util.*;
-
 public class hhm_bsicss
 {
-
     public static Scanner scn = new Scanner(System.in);
     public static void printZ()
     {
@@ -13,12 +11,34 @@ public class hhm_bsicss
         System.out.println("*****");
     }
 
-    public static void printOddEven(int num)
+
+    public static void tozunderstandVariables()
+    {  // int , long , short , byte , char , boolean , float , double
+        int x = 10;
+        System.out.println(x);
+    }
+
+    public static void gradingSystem(int num)
+    {
+        if(num > 90)
+        System.out.println("excellent");
+        else if(num > 80)
+        System.out.println("good");
+        else if(num > 70)
+        System.out.println("fair");
+        else if(num > 60)
+        System.out.println("meets expectations");
+        else
+        System.out.println("below par");
+    }
+
+
+    public static void printEvenOdd(int num)
     {
         if(num % 2 == 0)
-        System.out.println(num + " is even");
+        System.out.println("Even");
         else
-        System.out.println(num + " is odd");
+        System.out.println("Odd");
     }
 
     public static void print3K(int num)
@@ -26,44 +46,49 @@ public class hhm_bsicss
         if(num % 3 == 0)
         System.out.println("3K");
         else if(num % 3 == 1)
-        System.out.println("3K + 1");
+        System.out.println("3k + 1");
         else
         System.out.println("3K + 2");
     }
 
-    public static void printCount()
+
+    public static void printingUsingLoop()
     {
         int i = 1;
-        while(i <= 5)
+
+        while(i <= 10)
         {
             System.out.println(i);
             i++;
         }
 
-        System.out.println("I am out of loop");
+        System.out.println("This is Done");
     }
 
-    public static void gradingSystem(int num)
-    {
-        if(num > 90)
-        System.out.println("Excellent");
-        else if(num > 80)
-        System.out.println("Good");
-        else if(num > 70)
-        System.out.println("Fair");
-        else if(num > 60)
-        System.out.println("meets expectations");
-        else
-        System.out.println("below par");
-    }
-
-    public static void printOddEvenInput()
+    public static void input()
     {
         int num = scn.nextInt();
+        System.out.println("Input is " + num);
+    }
 
+    public static void print1ToN(int n)
+    {
         int i = 1;
 
-        while(i <= num)
+        while(i <= n)
+        {
+            System.out.println(i);
+            i++;
+        }
+
+        System.out.println("This is Done");
+    }
+
+    public static void print1ToNOddEven(int n)
+    {
+        int i = 1;
+
+        while(i <= n)
         {
             if(i % 2 == 0)
             System.out.println(i + " is even");
@@ -72,14 +97,21 @@ public class hhm_bsicss
 
             i++;
         }
+
+        System.out.println("This is Done");
     }
     public static void main(String[] args)
-    {
+    { 
+
         //printZ();
-        //printOddEven(scn.nextInt());
-        //print3K(scn.nextInt());
-        //printCount();
+        //tozunderstandVariables();
         //gradingSystem(scn.nextInt());
-        printOddEvenInput();
+        //printEvenOdd(scn.nextInt());
+        //print3K(scn.nextInt());
+       // printingUsingLoop();
+       //input();
+       //print1ToN(scn.nextInt());
+       print1ToNOddEven(scn.nextInt());
+
     }
 }
