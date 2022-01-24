@@ -2,6 +2,7 @@ import java.util.*;
 public class hhm_bsicss
 {
     public static Scanner scn = new Scanner(System.in);
+    
     public static void printZ()
     {
         System.out.println("*****");
@@ -306,6 +307,131 @@ public class hhm_bsicss
 
         System.out.println(inv);
     }
+
+
+    public static void printDigitsInReverse()
+    {
+        Scanner scn = new Scanner(System.in);
+        int num = scn.nextInt();
+
+        while(num != 0)
+        {
+            int rem = num % 10;
+            num /= 10;
+            System.out.println(rem);
+        }
+    }
+
+    public static void rotateANumber()
+    {
+        Scanner scn = new Scanner(System.in);
+        int num = scn.nextInt();
+        int k = scn.nextInt();
+
+        int nod = 0;
+        int temp = num;
+
+        while(temp != 0)
+        {
+            temp /= 10;
+            nod++;
+        }
+
+        k = k % nod;
+
+        if(k < 0)
+        k = k + nod;
+
+        int div = 1;
+        int mul = 1;
+
+        for(int i = 1 ; i <= nod; i++)
+        {
+            if(i <= k)
+            div = div * 10;
+            else
+            mul = mul * 10;
+        }
+
+        int quo = num / div;
+        int rem = num % div;
+
+        int ans = rem * mul + quo;
+        System.out.println(ans);
+    }
+
+    public static void gcdAndLCM()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int num1 = scn.nextInt();
+        int num2 = scn.nextInt();
+
+        int on1 = num1;
+        int on2 = num2;
+
+        while(num1 % num2 != 0)
+        {
+            int rem = num1 % num2;
+
+            num1 = num2;
+            num2 = rem;
+        }
+
+        int gcd = num2;
+
+        int lcm = (on1 * on2) / gcd;
+
+        System.out.println(gcd);
+        System.out.println(lcm);
+    }
+
+    public static void primeFactorization()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int num = scn.nextInt();
+
+        for(int div = 2 ; div * div <= num; div++)
+        {
+            while(num % div == 0)
+            {
+                System.out.print(div + " ");
+                num /= div;
+            }
+        }
+
+
+        if(num > 1)
+        System.out.print(num);
+    }
+
+    public static void benjaminBulbs()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1 ; i * i <= n; i++)
+        {
+            System.out.println(i * i);
+        }
+    }
+
+    public static void pattern_1()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= i; j++)
+            System.out.print("*\t");
+
+            System.out.println();
+        }
+    }
     public static void main(String[] args)
     { 
 
@@ -328,6 +454,12 @@ public class hhm_bsicss
      //countDigits();
     // printDigits();
     //inverseOfNum();
+    //printDigitsInReverse();
+    //rotateANumber();
+   // gcdAndLCM();
+   //primeFactorization();
+   //benjaminBulbs();
+   pattern_1();
 
     }
 }
