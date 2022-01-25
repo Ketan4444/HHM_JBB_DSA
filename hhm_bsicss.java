@@ -432,6 +432,340 @@ public class hhm_bsicss
             System.out.println();
         }
     }
+
+    public static void pattern_2()
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int nst = n;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nst; j++)
+            System.out.print("*\t");
+
+            nst--;
+            System.out.println();
+        }
+    }
+
+    public static void pattern_3()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int nst = 1;
+        int nsp = n - 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nsp; j++)
+            System.out.print("\t");
+
+            for(int j = 1; j <= nst; j++)
+            System.out.print("*\t");
+
+            nsp--;
+            nst++;
+            System.out.println();
+        }
+    }
+
+    public static void pattern_4()
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int nsp = 0;
+        int nst = n;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nsp; j++)
+            System.out.print("\t");
+
+            for(int j = 1; j <= nst; j++)
+            System.out.print("*\t");
+
+            nst--;
+            nsp++;
+            System.out.println();
+        }
+    }
+
+    public static void pattern_5()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int nsp = n / 2;
+        int nst = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nsp; j++)
+            System.out.print("\t");
+
+            for(int j = 1; j <= nst; j++)
+            System.out.print("*\t");
+
+
+            if(i <= n / 2)
+            {
+                nst += 2;
+                nsp--;
+            }
+            else
+            {
+                nst -= 2;
+                nsp++;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_7()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
+                if(i == j)
+                System.out.print("*\t");
+                else
+                System.out.print("\t");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_6()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int nst = n /2 + 1;
+        int nsp = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nst; j++)
+            System.out.print("*\t");
+
+            for(int j = 1; j <= nsp; j++)
+            System.out.print("\t");
+
+            for(int j = 1; j <= nst; j++)
+            System.out.print("*\t");
+
+
+            if(i <= n / 2)
+            {
+                nst--;
+                nsp += 2;
+            }
+            else
+            {
+                nst++;
+                nsp -= 2;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pythagoreantriplet()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int a = scn.nextInt();
+        int b = scn.nextInt();
+        int c = scn.nextInt();
+
+        int max = a;
+
+        if(b > max)
+        max = b;
+
+        if(c > max)
+        max = c;
+
+        if(max == a)
+        {
+            if(a * a == b * b + c * c)
+            System.out.println(true);
+            else
+            System.out.println(false);
+
+        }
+        else if(max == b)
+        {
+
+            if(b * b == a * a + c * c)
+            System.out.println(true);
+            else
+            System.out.println(false);
+
+        }
+        else
+        {
+
+            if(c * c == a * a + b * b)
+            System.out.println(true);
+            else
+            System.out.println(false);
+
+        }
+    }
+
+    public static void pattern_8()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
+                if(i + j == n + 1)
+                System.out.print("*\t");
+                else
+                System.out.print("\t");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_9()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
+                if(i == j || i + j == n + 1)
+                System.out.print("*\t");
+                else
+                System.out.print("\t");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_11()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int val = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= i; j++)
+            {
+                System.out.print(val++ + "\t");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_12()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int a = 0;
+        int b = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= i; j++)
+            {
+                System.out.print(a + "\t");
+
+                int c = a + b;
+                a = b;
+                b = c;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_14()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= 10; i++)
+        {
+            System.out.println(n + " * " + i + " = " + n * i);
+        }
+    }
+
+    public static void pattern_15()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int nst = 1;
+        int nsp = n / 2;
+        int val = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nsp; j++)
+            System.out.print("\t");
+
+            int cval = val;
+
+            for(int j = 1; j <= nst; j++)
+            {
+                System.out.print(cval + "\t");
+                if(j <= nst / 2)
+                cval++;
+                else
+                cval--;
+            }
+
+
+            if(i <= n / 2)
+            {
+                val++;
+                nst += 2;
+                nsp--;
+            }
+            else
+            {
+                val--;
+                nst -= 2;
+                nsp++;
+            }
+
+            System.out.println();
+        }
+    }
     public static void main(String[] args)
     { 
 
@@ -459,7 +793,20 @@ public class hhm_bsicss
    // gcdAndLCM();
    //primeFactorization();
    //benjaminBulbs();
-   pattern_1();
+   //pattern_1();
+   //pattern_2();
+   //pattern_3();
+   //pattern_4();
+   //pattern_5();
+   //pattern_7();
+  // pythagoreantriplet();
+ // pattern_6();
+ //pattern_8();
+ //pattern_9();
+ //pattern_11();
+ //pattern_12();
+ //pattern_14();
+ pattern_15();
 
     }
 }
