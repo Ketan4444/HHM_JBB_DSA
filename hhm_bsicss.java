@@ -766,6 +766,241 @@ public class hhm_bsicss
             System.out.println();
         }
     }
+
+    public static void pattern_10()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+        int nspO = n / 2;
+        int nspI = -1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nspO; j++)
+            System.out.print("\t");
+
+            System.out.print("*\t");
+
+            for(int j = 1; j <= nspI; j++)
+            System.out.print("\t");
+
+            if(i > 1 && i < n)
+            System.out.print("*\t");
+
+            if(i <= n / 2)
+            {
+                nspO--;
+                nspI += 2;
+            }
+            else
+            {
+                nspO++;
+                nspI -= 2;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_13()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 0 ; i < n; i++)
+        {
+            int val = 1;
+
+            for(int j = 0 ; j <= i; j++)
+            {
+                System.out.print(val + "\t");
+                val = val * (i - j) / (j + 1);
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_16()
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int nst = 1;
+        int nsp = 2 * n - 3;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nst; j++)
+            {
+                System.out.print(j + "\t");
+            }
+
+            for(int j = 1; j <= nsp; j++)
+            {
+                System.out.print("\t");
+            }
+
+            if(i == n)
+            {
+                nst--;
+            }
+
+            for(int j = nst; j >= 1; j--)
+            {
+                System.out.print(j + "\t");
+            }
+
+            nst++;
+            nsp -= 2;
+            System.out.println();
+        }
+    }
+
+    public static void pattern_17()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+        int nsp = n / 2;
+        int nst = 1;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nsp; j++)
+            {
+                if(i == n / 2 + 1)
+                System.out.print("*\t");
+                else
+                System.out.print("\t");
+            }
+
+            for(int j = 1; j <= nst; j++)
+            {
+                System.out.print("*\t");
+            }
+
+            if(i <= n / 2)
+            {
+                nst++;
+            }
+            else
+            {
+                nst--;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_18()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        int nsp = 0;
+        int nst = n;
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= nsp; j++)
+            System.out.print("\t");
+
+            for(int j = 1; j <= nst; j++)
+            {
+                if(i > 1 && i <= n / 2 && j > 1 && j < nst)
+                System.out.print("\t");
+                else
+                System.out.print("*\t");
+            }
+
+            if(i <= n / 2)
+            {
+                nsp++;
+                nst -= 2;
+            }
+            else
+            {
+                nsp--;
+                nst += 2;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_19()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
+                if(i == 1)
+                {
+                    if((j >= 1 && j <= n / 2 + 1) || j == n)
+                    System.out.print("*\t");
+                    else
+                    System.out.print("\t");
+                }
+                else if(i < n / 2 + 1)
+                {
+                    if(j == n / 2 + 1 || j == n)
+                    System.out.print("*\t");
+                    else
+                    System.out.print("\t");
+                }
+                else if(i == n / 2 + 1)
+                {
+                    System.out.print("*\t");
+                }
+                else if(i < n)
+                {
+                    if(j == 1 || j == n / 2 + 1)
+                    System.out.print("*\t");
+                    else
+                    System.out.print("\t");
+                }
+                else
+                {
+                    if(j == 1 || j >= n / 2 + 1)
+                    System.out.print("*\t");
+                    else
+                    System.out.print("\t");
+                }
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void pattern_20()
+    {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
+                if(j == 1 || j == n)
+                System.out.print("*\t");
+                else if((i >= n /2 + 1) && (i == j || i + j == n + 1))
+                System.out.print("*\t");
+                else
+                System.out.print("\t");
+            }
+
+            System.out.println();
+        }
+    }
     public static void main(String[] args)
     { 
 
@@ -806,7 +1041,14 @@ public class hhm_bsicss
  //pattern_11();
  //pattern_12();
  //pattern_14();
- pattern_15();
+ //pattern_15();
+ //pattern_10();
+ //pattern_13();
+ //pattern_16();
+ //pattern_17();
+ //pattern_18();
+ //pattern_19();
+ pattern_20();
 
     }
 }
