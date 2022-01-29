@@ -1001,6 +1001,22 @@ public class hhm_bsicss
             System.out.println();
         }
     }
+
+    public static int countDigit_(int num , int d)
+    {
+        int count = 0;
+
+        while(num != 0)
+        {
+            int ld = num % 10;
+            num /= 10;
+
+            if(ld == d)
+            count++;
+        }
+
+        return count;
+    }
     public static void main(String[] args)
     { 
 
@@ -1048,7 +1064,8 @@ public class hhm_bsicss
  //pattern_17();
  //pattern_18();
  //pattern_19();
- pattern_20();
+ //pattern_20();
+ System.out.println(countDigit_(scn.nextInt(), scn.nextInt()));
 
     }
 }
