@@ -1059,6 +1059,121 @@ public class hhm_bsicss
 
         return ans;
     }
+
+    public static int anyBaseAddition(int num1 , int num2 , int b)
+    {
+        int ans = 0;
+        int pow = 1;
+        int carry = 0;
+
+        while(num1 > 0 || num2 > 0 || carry > 0)
+        {
+            int d1 = num1 % 10;
+            num1 /= 10;
+
+            int d2 = num2 % 10;
+            num2 /= 10;
+
+            int d = d1 + d2 + carry;
+
+            carry = d / b;
+            d = d % b;
+
+            ans = ans + d * pow;
+            pow = pow * 10;
+        }
+
+        return ans;
+    }
+
+    public static int anyBaseSubtraction(int num1 , int num2 , int b)
+    {
+        int ans = 0;
+        int pow = 1;
+
+        int carry = 0;
+
+        while(num2 != 0)
+        {
+            int d2 = num2 % 10;
+            num2 /= 10;
+
+            int d1 = num1 % 10;
+            num1 /= 10;
+
+            int d = d2 - carry - d1;
+
+            if(d < 0)
+            {
+                d = d + b;
+                carry = 1;
+            }
+            else
+            {
+                carry = 0;
+            }
+
+            ans = ans + d * pow;
+            pow *= 10;
+        }
+
+        return ans;
+    }
+
+    public static void Array_Demo()
+    {
+        int[] arr = new int[6];
+
+        arr[0] = 10;
+        arr[1] = 20;
+        arr[2] = 30;
+        arr[3] = 40;
+        arr[4] = 50;
+        arr[5] = 60;
+
+        for(int i = 0 ; i < arr.length; i++)
+        {
+            System.out.println(arr[i]);
+        }
+    }
+
+    public static int span(int[] arr)
+    {
+        int n = arr.length;
+
+        int max = -(int)1e9;
+        int min = (int)1e9;
+
+        for(int i = 0 ; i < n; i++)
+        {
+            if(arr[i] > max)
+            max = arr[i];
+
+            if(arr[i] < min)
+            min = arr[i];
+        }
+
+        int span = max - min;
+
+        return span;
+    }
+
+    public static int find(int[] arr , int num)
+    {
+        int n = arr.length;
+        int idx = -1;
+
+        for(int i = 0 ; i < n; i++)
+        {
+            if(arr[i] == num)
+            {
+                idx = i;
+                break;
+            }
+        }
+
+        return idx;
+    }
     public static void main(String[] args)
     { 
 
@@ -1111,7 +1226,15 @@ public class hhm_bsicss
  //System.out.println(decimalToAnyBase(scn.nextInt() , scn.nextInt()));
 
  //System.out.println(anyBaseToDecimal(scn.nextInt() , scn.nextInt()));
- System.out.println(anyBaseToAnyBase(scn.nextInt() , scn.nextInt() , scn.nextInt()));
+ //System.out.println(anyBaseToAnyBase(scn.nextInt() , scn.nextInt() , scn.nextInt()));
+
+ //System.out.println(anyBaseAddition(scn.nextInt() , scn.nextInt() , scn.nextInt()));
+ //System.out.println(anyBaseSubtraction(scn.nextInt(), scn.nextInt(), scn.nextInt()));
+ //Array_Demo();
+
+ int[] arr = {1 , 2 , 3 , 4 , 5 , 100};
+ //System.out.println(span(arr));
+ System.out.println(find(arr , scn.nextInt()));
 
     }
 }
