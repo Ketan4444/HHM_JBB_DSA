@@ -1017,6 +1017,48 @@ public class hhm_bsicss
 
         return count;
     }
+
+    public static int decimalToAnyBase(int num , int b)
+    {
+        int ans = 0;
+        int pow = 1;
+
+        while(num != 0)
+        {
+            int rem = num % b;
+            num /= b;
+
+            ans = ans + rem * pow;
+            pow *= 10;
+        }
+
+        return ans;
+    }
+
+    public static int anyBaseToDecimal(int num , int b)
+    {
+        int ans = 0;
+        int pow = 1;
+
+        while(num != 0)
+        {
+            int rem = num % 10;
+            num /= 10;
+
+            ans = ans + rem * pow;
+            pow *= b;
+        }
+
+        return ans;
+    }
+
+    public static int anyBaseToAnyBase(int num , int b1 , int b2)
+    {
+        int dec = anyBaseToDecimal(num, b1);
+        int ans = decimalToAnyBase(dec, b2);
+
+        return ans;
+    }
     public static void main(String[] args)
     { 
 
@@ -1065,7 +1107,11 @@ public class hhm_bsicss
  //pattern_18();
  //pattern_19();
  //pattern_20();
- System.out.println(countDigit_(scn.nextInt(), scn.nextInt()));
+ //System.out.println(countDigit_(scn.nextInt(), scn.nextInt()));
+ //System.out.println(decimalToAnyBase(scn.nextInt() , scn.nextInt()));
+
+ //System.out.println(anyBaseToDecimal(scn.nextInt() , scn.nextInt()));
+ System.out.println(anyBaseToAnyBase(scn.nextInt() , scn.nextInt() , scn.nextInt()));
 
     }
 }
