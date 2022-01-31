@@ -1329,6 +1329,77 @@ public class hhm_bsicss
             
         }
     }
+
+    public static int[] inverseOfArray(int[] arr)
+    {
+        int[] inv = new int[arr.length];
+
+        for(int i = 0 ; i < inv.length; i++)
+        {
+            inv[arr[i]] = i;
+        }
+
+        return inv;
+    }
+
+    public static void reverse(int[] arr , int i , int j)
+    {
+        while(i <= j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+
+            i++;
+            j--;
+        }
+    }
+
+    public static void rotateAnArray(int[] arr , int k)
+    {
+
+        k = k % arr.length;
+
+        if(k < 0)
+        {
+            k = k + arr.length;
+        }
+
+
+        reverse(arr , 0 , arr.length - k - 1);
+        reverse(arr , arr.length - k , arr.length - 1);
+        reverse(arr , 0 , arr.length - 1);
+
+        for(int ele : arr)
+        System.out.print(ele + " ");
+
+    }
+
+    public static void binarySearch(int[] arr , int data)
+    {
+        int i = 0;
+        int j = arr.length - 1;
+        int idx = -1;
+        while(i <= j)
+        {
+            int mid = (i + j) / 2;
+
+            if(data > arr[mid])
+            i = mid + 1;
+            else if(data < arr[mid])
+            j = mid - 1;
+            else
+            {
+                idx = mid;
+                break;
+
+            }
+
+        }
+
+        System.out.println(idx);
+    }
     public static void main(String[] args)
     { 
 
@@ -1405,7 +1476,16 @@ public class hhm_bsicss
     // int[] arr = {4 , 6 , 2 , 4 , 3};
     // reverse(arr);
 
-    int[] arr = {1 , 2 ,3 , 4};
-    subArray(arr);
+   // int[] arr = {1 , 2 ,3 , 4};
+    //subArray(arr);
+    int[] arr = {0 , 1 , 2 , 3 , 4};
+    // int[] ans = inverseOfArray(arr);
+
+    // for(int ele : ans)
+    // System.out.print(ele + " ");
+
+ //   rotateAnArray(arr, -2);
+
+    binarySearch(arr, 100);
      }
 }
