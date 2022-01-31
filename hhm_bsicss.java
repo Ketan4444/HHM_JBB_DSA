@@ -1174,6 +1174,161 @@ public class hhm_bsicss
 
         return idx;
     }
+
+    public static void additionOfArrays(int[] arr1 , int[] arr2)
+    {
+        int n1 = arr1.length;
+        int n2 = arr2.length;
+
+        int i = n1 - 1;
+        int j = n2 - 1;
+
+        int[] ans = new int[n2 > n1 ? n2 : n1];
+
+        int k = ans.length - 1;
+
+        int carry = 0;
+
+        while(k >= 0)
+        {
+            int d = carry;
+
+            if(i >= 0)
+            d = d + arr1[i];
+
+            if(j >= 0)
+            d = d + arr2[j];
+
+            carry = d / 10;
+            d = d % 10;
+
+            ans[k] = d;
+
+            i--;
+            j--;
+            k--;
+        }
+
+        if(carry > 0)
+        System.out.println(carry);
+
+        for(int idx = 0; idx < ans.length; idx++)
+        System.out.println(ans[idx]);
+    }
+
+    public static void barChart(int[] arr)
+    {
+        int max = -(int)1e9;
+
+        for(int ele : arr)
+        max = Math.max(max , ele);
+
+        for(int i = max ; i >= 1; i--)
+        {
+            for(int j = 0 ; j < arr.length; j++)
+            {
+                if(arr[j] >= i)
+                System.out.print("*\t");
+                else
+                System.out.print("\t");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void subtractArray(int[] arr1 , int[] arr2)
+    {
+        int n2 = arr2.length;
+        int n1 = arr1.length;
+
+        int i = n2 - 1;
+        int j = n1 - 1;
+
+        int[] ans = new int[n2];
+        int k = n2 - 1;
+
+        int carry = 0;
+
+        while(k >= 0)
+        {
+            int d = arr2[i] - carry;
+
+            if(j >= 0)
+            d = d - arr1[j];
+
+            if(d < 0)
+            {
+                d = d + 10;
+                carry = 1;
+            }
+            else
+            {
+                carry = 0;
+            }
+
+            ans[k] = d;
+            i--;
+            j--;
+            k--;
+        }
+
+        int idx = 0;
+
+        while(idx < ans.length)
+        {
+            if(ans[idx] != 0)
+            {
+                break;
+            }
+            else
+            {
+                idx++;
+            }
+        }
+
+        for(int x = idx ; x < ans.length; x++)
+        System.out.println(ans[x]);
+    }
+
+    public static void reverse(int[] arr)
+    {
+        int n = arr.length;
+
+        int i = 0;
+        int j = n - 1;
+
+        while(i < j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+            i++;
+            j--;
+        }
+
+        for(int ele : arr)
+        System.out.print(ele + " ");
+    }
+
+    public static void subArray(int[] arr)
+    {
+        int n = arr.length;
+
+        for(int si = 0 ; si < n; si++)
+        {
+            for(int fi = si; fi < n; fi++)
+            {
+                for(int i = si; i <= fi; i++)
+                System.out.print(arr[i]);
+
+                System.out.println();
+            }
+
+            
+        }
+    }
     public static void main(String[] args)
     { 
 
@@ -1232,9 +1387,25 @@ public class hhm_bsicss
  //System.out.println(anyBaseSubtraction(scn.nextInt(), scn.nextInt(), scn.nextInt()));
  //Array_Demo();
 
- int[] arr = {1 , 2 , 3 , 4 , 5 , 100};
- //System.out.println(span(arr));
- System.out.println(find(arr , scn.nextInt()));
+//  int[] arr = {1 , 2 , 3 , 4 , 5 , 100};
+//  //System.out.println(span(arr));
+//  System.out.println(find(arr , scn.nextInt()));
 
-    }
+// int[] arr1 = {9 , 9 , 9};
+// int[] arr2 = {1};
+
+// additionOfArrays(arr1, arr2);
+    //     int[] arr = {6 , 4 , 2 , 1};
+    //     barChart(arr);
+    // int[] arr2 = {1 , 0 , 0 , 0};
+    // int[] arr1 = {1};
+
+    // subtractArray(arr1, arr2);
+
+    // int[] arr = {4 , 6 , 2 , 4 , 3};
+    // reverse(arr);
+
+    int[] arr = {1 , 2 ,3 , 4};
+    subArray(arr);
+     }
 }
