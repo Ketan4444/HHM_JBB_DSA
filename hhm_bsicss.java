@@ -1400,6 +1400,80 @@ public class hhm_bsicss
 
         System.out.println(idx);
     }
+
+    public static void subset(char[] arr)
+    {
+        int n = arr.length;
+
+        
+
+        int x = (1 << n);
+
+        for(int i = 0 ; i < x; i++)
+        {
+            String str = "";
+            int dec = i;
+            for(int j = 0 ; j < arr.length; j++)
+            {
+                int rem = dec % 2;
+                dec = dec / 2;
+
+                if(rem == 0)
+                str = "-\t" + str;
+                else
+                str = arr[n - 1 - j] + "\t" + str;
+            }
+
+            System.out.println(str);
+        }
+    }
+
+    public static void fiAndLi(int[] arr , int data)
+    {
+        int fi = -1;
+        int i = 0;
+        int j = arr.length - 1;
+
+        while(i <= j)
+        {
+            int mid = (i + j) / 2;
+
+            if(arr[mid] < data)
+            i = mid + 1;
+            else if(arr[mid] > data)
+            j = mid - 1;
+            else
+            {
+                fi = mid;
+                j = mid - 1;
+            }
+        }
+
+       
+
+        i = 0;
+        j = arr.length - 1;
+
+        int li = -1;
+
+        while(i <= j)
+        {
+            int mid = (i + j) / 2;
+
+            if(arr[mid] < data)
+            i = mid + 1;
+            else if(arr[mid] > data)
+            j = mid - 1;
+            else
+            {
+                li = mid;
+                i = mid + 1;
+            }
+        }
+
+        System.out.println(fi);
+        System.out.println(li);
+    }
     public static void main(String[] args)
     { 
 
@@ -1478,7 +1552,7 @@ public class hhm_bsicss
 
    // int[] arr = {1 , 2 ,3 , 4};
     //subArray(arr);
-    int[] arr = {0 , 1 , 2 , 3 , 4};
+ //   int[] arr = {0 , 1 , 2 , 3 , 4};
     // int[] ans = inverseOfArray(arr);
 
     // for(int ele : ans)
@@ -1486,6 +1560,11 @@ public class hhm_bsicss
 
  //   rotateAnArray(arr, -2);
 
-    binarySearch(arr, 100);
+ //   binarySearch(arr, 100);
+ //char[] arr = {'a' , 'b' , 'c'};
+ //subset(arr);
+ int[] arr = {1 ,2 , 4  ,4 , 4 , 4 , 5, 6};
+ int data = 4;
+ fiAndLi(arr, data);
      }
 }
