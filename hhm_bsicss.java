@@ -1474,6 +1474,99 @@ public class hhm_bsicss
         System.out.println(fi);
         System.out.println(li);
     }
+
+    public static void floorAndCeil(int[] arr , int data)
+    {
+        int lo = 0;
+        int hi = arr.length - 1;
+
+        int floor = -1;
+        int ceil = -1;
+        while(lo <= hi)
+        {
+            int mid = (lo + hi) / 2;
+
+            if(data < arr[mid])
+            {
+                ceil = arr[mid];
+                hi = mid - 1;
+            }
+            else if(data > arr[mid])
+            {
+                floor = arr[mid];
+                lo = mid + 1;
+            }
+            else
+            {
+                floor = arr[mid];
+                ceil = arr[mid];
+                break;
+            }
+        }
+
+        System.out.println(floor);
+        System.out.println(ceil);
+    }
+
+    public static int anyBaseMultiplication(int num1 , int num2 , int b)
+    {
+        int ans = 0;
+        int pow = 1;
+
+        while(num2 != 0)
+        {
+            int singleProduct = getSingleDigitProduct(num1, num2 % 10, b);
+            num2 /= 10;
+
+            ans = anyBaseAddition_(ans, singleProduct * pow, b);
+            pow *= 10;
+        }
+
+        return ans;
+    }
+
+    public static int getSingleDigitProduct(int num , int d , int b)
+    {
+        int pow = 1;
+        int carry = 0;
+        int ans = 0;
+
+        while(num != 0 || carry != 0)
+        {
+            int dig = (num % 10) * d + carry;
+            num /=10;
+
+            carry = dig / b;
+            dig = dig % b;
+
+            ans = ans + dig * pow;
+            pow = pow * 10;
+        }
+
+        return ans;
+    }
+
+    public static int anyBaseAddition_(int num1 , int num2 , int b)
+    {
+        int ans = 0;
+        int pow = 1;
+        int carry = 0;
+
+        while(num1 != 0 || num2 != 0 || carry != 0)
+        {
+            int d = (num1 % 10) + (num2 % 10) + carry;
+            carry = d / b;
+            d = d % b;
+
+            num1 /= 10;
+            num2 /= 10;
+
+            ans = ans + d * pow;
+            pow *= 10;
+        }
+
+        return ans;
+    }
     public static void main(String[] args)
     { 
 
@@ -1563,8 +1656,14 @@ public class hhm_bsicss
  //   binarySearch(arr, 100);
  //char[] arr = {'a' , 'b' , 'c'};
  //subset(arr);
- int[] arr = {1 ,2 , 4  ,4 , 4 , 4 , 5, 6};
- int data = 4;
- fiAndLi(arr, data);
+//  int[] arr = {1 ,2 , 4  ,4 , 4 , 4 , 5, 6};
+//  int data = 4;
+//  fiAndLi(arr, data);
+
+// int[] arr = {1 , 2 , 3 , 4 ,5 , 6 , 7 , 10};
+// int data = 100;
+// floorAndCeil(arr, data);
+
+        System.out.println(anyBaseMultiplication(1234 , 56 , 8));
      }
 }
