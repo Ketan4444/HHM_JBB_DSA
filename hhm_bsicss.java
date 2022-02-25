@@ -1567,6 +1567,81 @@ public class hhm_bsicss
 
         return ans;
     }
+
+    public static void traverSal(int[][] arr)
+    {
+        for(int j = 0 ; j < arr[0].length; j++)
+        {
+            if(j % 2 == 0)
+            {
+                for(int i = 0 ; i < arr.length; i++)
+                {
+                    System.out.println(arr[i][j]);
+                }
+            }
+            else
+            {
+                for(int i = arr.length - 1; i >= 0; i--)
+                {
+                    System.out.println(arr[i][j]);
+                }
+            }
+        }
+    
+    }
+
+    public static void exitPoint(int[][] arr)
+    {
+        int i = 0;
+        int j = 0;
+        int dir = 0;
+
+        while(true){
+
+            dir = (dir + arr[i][j]) % 4;
+
+            if(dir == 0)
+            {
+                j++;
+                if(j == arr[0].length)
+                {
+                    j--;
+                    break;
+                }
+            }
+            else if(dir == 1)
+            {
+                i++;
+                if(i == arr.length)
+                {
+                    i--;
+                    break;
+                }
+            }
+            else if(dir == 2)
+            {
+                j--;
+                if(j == -1)
+                {
+                    j++;
+                    break;
+                }
+            }
+            else
+            {
+                i--;
+                if(i == -1)
+                {
+                    i++;
+                    break;
+                }
+            }
+
+        }
+
+        System.out.println(i);
+        System.out.println(j);
+    }
     public static void main(String[] args)
     { 
 
@@ -1664,6 +1739,38 @@ public class hhm_bsicss
 // int data = 100;
 // floorAndCeil(arr, data);
 
-        System.out.println(anyBaseMultiplication(1234 , 56 , 8));
+        // System.out.println(anyBaseMultiplication(1234 , 56 , 8));
+
+        // int[][] arr = new int[4][4];
+        // arr[0][0] = 10;
+        // arr[0][1] = 20;
+        // arr[0][2] = 30;
+        // arr[0][3] = 40;
+
+        // arr[1][0] = 50;
+        // arr[1][1] = 60;
+        // arr[1][2] = 70;
+        // arr[1][3] = 80;
+
+        // arr[2][0] = 90;
+        // arr[2][1] = 100;
+        // arr[2][2] = 110;
+        // arr[2][3] = 120;
+
+        // arr[3][0] = 130;
+        // arr[3][1] = 140;
+        // arr[3][2] = 150;
+        // arr[3][3] = 160;
+
+
+        // traverSal(arr);
+
+        int[][] arr = new int[2][2];
+        arr[0][0] = 0;
+        arr[0][1] = 1;
+        arr[1][0] = 0;
+        arr[1][1] = 1;
+
+        exitPoint(arr);
      }
 }
